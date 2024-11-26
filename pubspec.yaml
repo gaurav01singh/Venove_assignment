@@ -1,0 +1,36 @@
+name: location123
+description: "A new Flutter project."
+publish_to: 'none' # Prevent accidental publishing
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  google_maps_flutter: ^2.2.6 # or latest version
+  flutter_polyline_points: ^1.0.0
+  permission_handler: ^11.3.1
+  intl: ^0.19.0
+  fl_chart: ^0.69.2
+  location: ^7.0.1
+  flutter_slidable: ^3.1.1
+  shared_preferences: ^2.3.3
+  geocoding: ^3.0.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  # assets:
+  #   - images/a_dot_burr.jpeg
+  #   - images/a_dot_ham.jpeg
