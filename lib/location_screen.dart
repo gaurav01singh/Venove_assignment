@@ -5,16 +5,16 @@ import 'package:location123/member.dart'; // Assuming member class is in this fi
 class LocationScreen extends StatelessWidget {
   final Member member;
 
-  LocationScreen({required this.member});
+  const LocationScreen({super.key, required this.member});
 
   @override
   Widget build(BuildContext context) {
     Set<Marker> markers = {
       // Red marker for the current location
       Marker(
-        markerId: MarkerId('current_location'),
+        markerId: const MarkerId('current_location'),
         position: member.currentLocation,
-        infoWindow: InfoWindow(title: 'Current Location'),
+        infoWindow: const InfoWindow(title: 'Current Location'),
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
       ),
     };
@@ -25,7 +25,7 @@ class LocationScreen extends StatelessWidget {
         Marker(
           markerId: MarkerId(visitedLocation.location.toString()),
           position: visitedLocation.location,
-          infoWindow: InfoWindow(title: 'Visited Location'),
+          infoWindow: const InfoWindow(title: 'Visited Location'),
           icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
         ),
       );

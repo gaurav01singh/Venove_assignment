@@ -94,6 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               );
+            // ignore: unnecessary_to_list_in_spreads
             }).toList(),
           ],
         ),

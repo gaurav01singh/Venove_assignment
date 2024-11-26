@@ -10,6 +10,7 @@ class AttendanceScreen extends StatefulWidget {
   const AttendanceScreen({super.key, required this.member});
 
   @override
+  // ignore: library_private_types_in_public_api
   _AttendanceScreenState createState() => _AttendanceScreenState();
 }
 
