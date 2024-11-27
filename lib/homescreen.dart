@@ -29,22 +29,6 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('Attendance'),
         backgroundColor: const Color.fromARGB(255, 64, 39, 176),
-        
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.map),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MapScreen(
-                    members: widget.members,
-                  ),
-                ),
-              );
-            },
-          ),
-        ],
       ),
       drawer: Drawer(
         child: ListView(

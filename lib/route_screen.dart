@@ -55,10 +55,10 @@ class _RouteScreenState extends State<RouteScreen> {
 
         setState(() {
           // Constructing full addresses
-          _startPlaceName = '${startPlacemark.name}, ${startPlacemark.street}, '
+          _startPlaceName = '${startPlacemark.name},'
               '${startPlacemark.locality}, ${startPlacemark.postalCode}, ${startPlacemark.country}';
 
-          _endPlaceName = '${endPlacemark.name}, ${endPlacemark.street}, '
+          _endPlaceName = '${endPlacemark.name}, '
               '${endPlacemark.locality}, ${endPlacemark.postalCode}, ${endPlacemark.country}';
         });
       }
@@ -68,7 +68,7 @@ class _RouteScreenState extends State<RouteScreen> {
   }
 
   Future<void> _fetchRoute() async {
-    const apiKey = 'your_api_key';
+    const apiKey = 'Your_api_key';
     final url = Uri.parse(
       'https://maps.googleapis.com/maps/api/directions/json?'
       'origin=${widget.startLocation.latitude},${widget.startLocation.longitude}&'
@@ -248,15 +248,22 @@ class _RouteScreenState extends State<RouteScreen> {
                       height: 16.0, 
                     ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Text(
-                      'Total Distance: ${_totalDistance.toStringAsFixed(2)} km',
-                      style: const TextStyle(fontWeight: FontWeight.bold),
+                     Column(
+                      children: [
+                        const Text('Total Distance',),
+                    Text('${_totalDistance.toStringAsFixed(2)}km',style: const TextStyle(fontWeight: FontWeight.bold),)
+                      ],
                     ),
-                Text(
-                  'Time Taken: $_duration',
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+                Column(
+                  children: [
+                    const Text(
+                      'Time Taken',
+                      
+                    ),
+                    Text(_duration,style: const TextStyle(fontWeight: FontWeight.bold),)
+                  ],
                 ),
                   ],
                 ),
@@ -270,7 +277,7 @@ class _RouteScreenState extends State<RouteScreen> {
             child: GoogleMap(
               initialCameraPosition: CameraPosition(
                 target: widget.startLocation,
-                zoom: 12,
+                zoom: 15,
               ),
               polylines: _polylines,
               markers: {
