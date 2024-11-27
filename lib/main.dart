@@ -20,36 +20,22 @@ class MyApp extends StatelessWidget {
         currentLocation: const LatLng(28.6692, 77.4538), // Ghaziabad
         visitedLocations: [
           VisitedLocation(
-            location: const LatLng(28.6712, 77.4521),
-            visitTime: DateTime.now().subtract(const Duration(hours: 1)),
-            arrivalTime: DateTime(2022, 8, 31, 8, 0),
-            leaveTime: DateTime(2022, 8, 31, 9, 0),
+            location: const LatLng(28.6533, 77.4010),
+            visitTime: DateTime.now().subtract(const Duration(days: 3)),
+            arrivalTime: DateTime(2022, 8, 31, 11, 0),
+            leaveTime: DateTime(2022, 8, 31, 12, 0),
           ),
           VisitedLocation(
-            location: const LatLng(28.6675, 77.4445),
+            location: const LatLng(28.6375, 77.4645),
             visitTime: DateTime.now().subtract(const Duration(days: 1)),
             arrivalTime: DateTime(2022, 8, 31, 9, 30),
             leaveTime: DateTime(2022, 8, 31, 10, 30),
           ),
           VisitedLocation(
-            location: const LatLng(28.6533, 77.4310),
-            visitTime: DateTime.now().subtract(const Duration(days: 3)),
-            arrivalTime: DateTime(2022, 8, 31, 11, 0),
-            leaveTime: DateTime(2022, 8, 31, 12, 0),
-          ),
-        ],
-        attendanceRecords: [
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 1)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 2)),
-            isPresent: false,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 3)),
-            isPresent: false,
+            location: const LatLng(28.5712, 77.4521),
+            visitTime: DateTime.now().subtract(const Duration(hours: 1)),
+            arrivalTime: DateTime(2022, 8, 31, 8, 0),
+            leaveTime: DateTime(2022, 8, 31, 9, 0),
           ),
         ],
         status: "WORKING",
@@ -67,30 +53,16 @@ class MyApp extends StatelessWidget {
             leaveTime: DateTime(2022, 8, 31, 9, 0),
           ),
           VisitedLocation(
-            location: const LatLng(28.5290, 77.1820),
+            location: const LatLng(28.5590, 77.1820),
             visitTime: DateTime.now().subtract(const Duration(days: 1)),
             arrivalTime: DateTime(2022, 8, 31, 9, 30),
             leaveTime: DateTime(2022, 8, 31, 10, 30),
           ),
           VisitedLocation(
-            location: const LatLng(28.5300, 77.1900),
+            location: const LatLng(28.5046, 77.1900),
             visitTime: DateTime.now().subtract(const Duration(days: 3)),
             arrivalTime: DateTime(2022, 8, 31, 11, 0),
             leaveTime: DateTime(2022, 8, 31, 12, 0),
-          ),
-        ],
-        attendanceRecords: [
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 1)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 2)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 3)),
-            isPresent: false,
           ),
         ],
         status: "WORKING",
@@ -108,30 +80,16 @@ class MyApp extends StatelessWidget {
             leaveTime: DateTime(2022, 8, 31, 9, 0),
           ),
           VisitedLocation(
-            location: const LatLng(28.5920, 77.0450),
+            location: const LatLng(28.5920, 77.1450),
             visitTime: DateTime.now().subtract(const Duration(days: 1)),
             arrivalTime: DateTime(2022, 8, 31, 9, 30),
             leaveTime: DateTime(2022, 8, 31, 10, 30),
           ),
           VisitedLocation(
-            location: const LatLng(28.5950, 77.0470),
+            location: const LatLng(28.6550, 77.1470),
             visitTime: DateTime.now().subtract(const Duration(days: 3)),
             arrivalTime: DateTime(2022, 8, 31, 11, 0),
             leaveTime: DateTime(2022, 8, 31, 12, 0),
-          ),
-        ],
-        attendanceRecords: [
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 1)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 2)),
-            isPresent: false,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 3)),
-            isPresent: false,
           ),
         ],
         status: "checked out",
@@ -143,7 +101,7 @@ class MyApp extends StatelessWidget {
         currentLocation: const LatLng(28.4595, 77.0266), // Gurgaon
         visitedLocations: [
           VisitedLocation(
-            location: const LatLng(28.4600, 77.0250),
+            location: const LatLng(28.4600, 77.1250),
             visitTime: DateTime.now().subtract(const Duration(hours: 4)),
             arrivalTime: DateTime(2022, 8, 31, 8, 0),
             leaveTime: DateTime(2022, 8, 31, 9, 0),
@@ -155,24 +113,10 @@ class MyApp extends StatelessWidget {
             leaveTime: DateTime(2022, 8, 31, 10, 30),
           ),
           VisitedLocation(
-            location: const LatLng(28.4540, 77.0300),
+            location: const LatLng(28.3540, 77.0300),
             visitTime: DateTime.now().subtract(const Duration(days: 3)),
             arrivalTime: DateTime(2022, 8, 31, 11, 0),
             leaveTime: DateTime(2022, 8, 31, 12, 0),
-          ),
-        ],
-        attendanceRecords: [
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 1)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 2)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 3)),
-            isPresent: false,
           ),
         ],
         status: "NOT LOGGED-IN",
@@ -184,7 +128,7 @@ class MyApp extends StatelessWidget {
         currentLocation: const LatLng(28.6129, 77.2295), // Central Delhi
         visitedLocations: [
           VisitedLocation(
-            location: const LatLng(28.6130, 77.2080),
+            location: const LatLng(28.7130, 77.2080),
             visitTime: DateTime.now().subtract(const Duration(hours: 5)),
             arrivalTime: DateTime(2024, 11, 26, 8, 0),
             leaveTime: DateTime(2024, 11, 26, 9, 0),
@@ -196,26 +140,13 @@ class MyApp extends StatelessWidget {
             leaveTime: DateTime(2024, 11, 26, 10, 30),
           ),
           VisitedLocation(
-            location: const LatLng(28.6160, 77.2110),
+            location: const LatLng(28.6160, 77.3110),
             visitTime: DateTime.now().subtract(const Duration(days: 3)),
             arrivalTime: DateTime(2024, 11, 26, 11, 0),
             leaveTime: DateTime(2024, 11, 26, 12, 0),
           ),
         ],
-        attendanceRecords: [
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 1)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 2)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 3)),
-            isPresent: false,
-          ),
-        ],
+        
         status: "checked out",
         imageUrl: "lib/assets/image/ANJALI SINGH.jpg",
       ),
@@ -225,7 +156,7 @@ class MyApp extends StatelessWidget {
         currentLocation: const LatLng(28.9845, 77.7064), // Meerut
         visitedLocations: [
           VisitedLocation(
-            location: const LatLng(28.9830, 77.7050),
+            location: const LatLng(28.9830, 77.8050),
             visitTime: DateTime.now().subtract(const Duration(hours: 1)),
             arrivalTime: DateTime(2022, 8, 31, 8, 0),
             leaveTime: DateTime(2022, 8, 31, 9, 0),
@@ -237,26 +168,13 @@ class MyApp extends StatelessWidget {
             leaveTime: DateTime(2022, 8, 31, 10, 30),
           ),
           VisitedLocation(
-            location: const LatLng(28.9870, 77.7080),
+            location: const LatLng(28.8870, 77.7080),
             visitTime: DateTime.now().subtract(const Duration(days: 3)),
             arrivalTime: DateTime(2022, 8, 31, 11, 0),
             leaveTime: DateTime(2022, 8, 31, 12, 0),
           ),
         ],
-        attendanceRecords: [
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 1)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 2)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 3)),
-            isPresent: false,
-          ),
-        ],
+        
         status: "checked out",
         imageUrl: "lib/assets/image/VIKAS SHARMA.jpg",
       ),
@@ -266,7 +184,7 @@ class MyApp extends StatelessWidget {
         currentLocation: const LatLng(28.6304, 77.4416), // Noida Sector 62
         visitedLocations: [
           VisitedLocation(
-            location: const LatLng(28.6300, 77.4400),
+            location: const LatLng(28.6300, 77.5400),
             visitTime: DateTime.now().subtract(const Duration(hours: 1)),
             arrivalTime: DateTime(2022, 8, 31, 8, 0),
             leaveTime: DateTime(2022, 8, 31, 9, 0),
@@ -278,26 +196,13 @@ class MyApp extends StatelessWidget {
             leaveTime: DateTime(2022, 8, 31, 10, 30),
           ),
           VisitedLocation(
-            location: const LatLng(28.6350, 77.4450),
+            location: const LatLng(28.5350, 77.4450),
             visitTime: DateTime.now().subtract(const Duration(days: 2)),
             arrivalTime: DateTime(2022, 8, 31, 11, 0),
             leaveTime: DateTime(2022, 8, 31, 12, 0),
           ),
         ],
-        attendanceRecords: [
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 1)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 2)),
-            isPresent: false,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 3)),
-            isPresent: false,
-          ),
-        ],
+        
         status: "WORKING",
         imageUrl: "lib/assets/image/ANKITA GUPTA.jpg",
       ),
@@ -325,20 +230,7 @@ class MyApp extends StatelessWidget {
             leaveTime: DateTime(2022, 8, 31, 12, 0),
           ),
         ],
-        attendanceRecords: [
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 1)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 2)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 3)),
-            isPresent: false,
-          ),
-        ],
+        
         status: "NOT LOGGED-IN",
         imageUrl: "lib/assets/image/RAJESH VERMA.jpg",
       ),
@@ -366,20 +258,7 @@ class MyApp extends StatelessWidget {
             leaveTime: DateTime(2022, 8, 31, 12, 0),
           ),
         ],
-        attendanceRecords: [
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 1)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 2)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 3)),
-            isPresent: false,
-          ),
-        ],
+        
         status: "checked out",
         imageUrl: "lib/assets/image/SUNITA RANA.jpg",
       ),
@@ -407,20 +286,7 @@ class MyApp extends StatelessWidget {
             leaveTime: DateTime(2024, 11, 26, 12, 0),
           ),
         ],
-        attendanceRecords: [
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 1)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 2)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 3)),
-            isPresent: false,
-          ),
-        ],
+        
         status: "WORKING",
         imageUrl: "lib/assets/image/RAKESH MALHOTRA.jpg",
       ),
@@ -448,20 +314,7 @@ class MyApp extends StatelessWidget {
             leaveTime: DateTime(2022, 8, 31, 12, 0),
           ),
         ],
-        attendanceRecords: [
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 1)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 2)),
-            isPresent: false,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 3)),
-            isPresent: false,
-          ),
-        ],
+        
         status: "WORKING",
         imageUrl: "lib/assets/image/shifa_sheikh.jpg",
       ),
@@ -489,20 +342,7 @@ class MyApp extends StatelessWidget {
             leaveTime: DateTime(2022, 8, 31, 12, 0),
           ),
         ],
-        attendanceRecords: [
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 1)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 2)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 3)),
-            isPresent: false,
-          ),
-        ],
+        
         status: "NOT LOGGED-IN",
         imageUrl: "lib/assets/image/ANIL KHANNA.jpg",
       ),
@@ -512,7 +352,7 @@ class MyApp extends StatelessWidget {
         currentLocation: const LatLng(28.4808, 77.0644), // Gurgaon Sector 29
         visitedLocations: [
           VisitedLocation(
-            location: const LatLng(28.4800, 77.0630),
+            location: const LatLng(28.3800, 77.0630),
             visitTime: DateTime.now().subtract(const Duration(hours: 3)),
             arrivalTime: DateTime(2022, 8, 31, 8, 0),
             leaveTime: DateTime(2022, 8, 31, 9, 0),
@@ -528,20 +368,6 @@ class MyApp extends StatelessWidget {
             visitTime: DateTime.now().subtract(const Duration(days: 2)),
             arrivalTime: DateTime(2022, 8, 31, 11, 0),
             leaveTime: DateTime(2022, 8, 31, 12, 0),
-          ),
-        ],
-        attendanceRecords: [
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 1)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 2)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 3)),
-            isPresent: false,
           ),
         ],
         status: "NOT LOGGED-IN",
@@ -571,20 +397,6 @@ class MyApp extends StatelessWidget {
             leaveTime: DateTime(2024, 11, 26, 12, 0),
           ),
         ],
-        attendanceRecords: [
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 1)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 2)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 3)),
-            isPresent: false,
-          ),
-        ],
         status: "checked out",
         imageUrl: "lib/assets/image/PRIYA SHARMA.jpg",
       ),
@@ -610,20 +422,6 @@ class MyApp extends StatelessWidget {
             visitTime: DateTime.now().subtract(const Duration(days: 3)),
             arrivalTime: DateTime(2022, 8, 31, 11, 0),
             leaveTime: DateTime(2022, 8, 31, 12, 0),
-          ),
-        ],
-        attendanceRecords: [
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 1)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 2)),
-            isPresent: true,
-          ),
-          AttendanceRecord(
-            checkInTime: DateTime.now().subtract(const Duration(days: 3)),
-            isPresent: false,
           ),
         ],
         status: "NOT LOGGED-IN",

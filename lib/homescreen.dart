@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:location123/location_screen.dart';
 import 'package:location123/mapscreen.dart';
@@ -16,30 +15,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late GoogleMapController _mapController;
-
-  // Method to add markers for all members
-  Set<Marker> _createMarkers() {
-    return widget.members.map((member) {
-      return Marker(
-        markerId: MarkerId(member.name),
-        position: member.currentLocation,
-        infoWindow: InfoWindow(
-          title: member.name,
-        ),
-        onTap: () {
-          // Navigate to MemberScreen when the marker is tapped
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => MemberScreen(members: widget.members),
-            ),
-          );
-        },
-      );
-    }).toSet();
-  }
-
   // Method to get the current date in the desired format
   String _getCurrentDate() {
     final DateTime now = DateTime.now();
@@ -54,16 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('Attendance'),
         backgroundColor: const Color.fromARGB(255, 64, 39, 176),
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(Icons.menu),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-            );
-          },
-        ),
+        
         actions: [
           IconButton(
             icon: const Icon(Icons.map),
@@ -273,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           const Text(
                             'NOT LOGGED-IN',
                             style: TextStyle(
-                                color: Color.fromARGB(255, 253, 46, 46),
+                                color: Color.fromARGB(255,68,52,169),
                                 fontWeight: FontWeight.bold),
                           ),
                         ] else ...[

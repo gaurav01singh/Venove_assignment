@@ -3,8 +3,8 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:location123/location_screen.dart';
 import 'package:location123/member.dart';
-
 
 //Map Screen where all members' last location or current location will be shown
 class MapScreen extends StatefulWidget {
@@ -30,7 +30,8 @@ class _MapScreenState extends State<MapScreen> {
 
   Future<void> _createCustomMarkers() async {
     for (var member in widget.members) {
-      final BitmapDescriptor customMarker = await _getCustomMarker(member.imageUrl);
+      final BitmapDescriptor customMarker =
+          await _getCustomMarker(member.imageUrl);
 
       setState(() {
         _markers.add(
@@ -44,71 +45,89 @@ class _MapScreenState extends State<MapScreen> {
                   ? 'Current Location'
                   : 'Last Location',
             ),
+            onTap: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LocationScreen(
+                      member: member), // Pass the member to LocationScreen
+                ),
+              )
+            },
           ),
         );
       });
     }
   }
 
- Future<BitmapDescriptor> _getCustomMarker(String imageUrl) async {
-  final ui.PictureRecorder pictureRecorder = ui.PictureRecorder();
-  final Canvas canvas = Canvas(pictureRecorder);
-  const double size = 120.0; 
+  Future<BitmapDescriptor> _getCustomMarker(String imageUrl) async {
+    final ui.PictureRecorder pictureRecorder = ui.PictureRecorder();
+    final Canvas canvas = Canvas(pictureRecorder);
+    const double size = 100.0; // Marker size
 
-  // Draw the blue border circle
-  final Paint borderPaint = Paint()
-    ..color = Colors.blue
-    ..style = PaintingStyle.fill
-    ..isAntiAlias = true;
-  canvas.drawCircle(
-    const Offset(size / 2, size / 2),
-    size / 2,
-    borderPaint,
-  );
+    // Draw the blue border circle
+    final Paint borderPaint = Paint()
+      ..color = const Color.fromARGB(255,68,52,169)
+      ..style = PaintingStyle.fill
+      ..isAntiAlias = true;
+    canvas.drawCircle(
+      const Offset(size / 2, size / 2),
+      size / 2,
+      borderPaint,
+    );
 
-  // Draw the white inner circle
-  final Paint backgroundPaint = Paint()
-    ..color = Colors.white
-    ..style = PaintingStyle.fill
-    ..isAntiAlias = true;
-  canvas.drawCircle(
-    const Offset(size / 2, size / 2),
-    (size / 2) - 5, 
-    backgroundPaint,
-  );
+    // Draw the white inner circle
+    final Paint backgroundPaint = Paint()
+      ..color = Colors.white
+      ..style = PaintingStyle.fill
+      ..isAntiAlias = true;
+    canvas.drawCircle(
+      const Offset(size / 2, size / 2),
+      (size / 2) - 5, // Slightly smaller radius for border
+      backgroundPaint,
+    );
 
-  // Loading images from assets
-  final ui.Image image = await _loadImage(imageUrl);
+    // Load the image from assets
+    final ui.Image image = await _loadImage(imageUrl);
 
-  const double imageSize = (size - 10); 
-  final double imageWidth = image.width.toDouble();
-  final double imageHeight = image.height.toDouble();
+    // Calculate scaling and offset to center the image inside the inner circle
+    const double imageSize = (size - 10); //for border on marker
+    final double imageWidth = image.width.toDouble();
+    final double imageHeight = image.height.toDouble();
 
-  final Rect srcRect = Rect.fromLTWH(0, 0, imageWidth, imageHeight);
-  const Rect dstRect = Rect.fromLTWH(5, 5, imageSize, imageSize);
+    final Rect srcRect = Rect.fromLTWH(0, 0, imageWidth, imageHeight);
+    const Rect dstRect = Rect.fromLTWH(5, 5, imageSize, imageSize);
 
-  final Paint imagePaint = Paint()..isAntiAlias = true;
+    final Paint imagePaint = Paint()..isAntiAlias = true;
 
-  canvas.save();
-  canvas.clipPath(
-    Path()..addOval(Rect.fromCircle(center: const Offset(size / 2, size / 2), radius: (size / 2) - 5)),
-  );
+    // Clip the canvas to make the image circular
+    canvas.save();
+    canvas.clipPath(
+      Path()
+        ..addOval(Rect.fromCircle(
+            center: const Offset(size / 2, size / 2), radius: (size / 2) - 5)),
+    );
 
-  canvas.drawImageRect(image, srcRect, dstRect, imagePaint);
-  canvas.restore();
+    // Draw the image
+    canvas.drawImageRect(image, srcRect, dstRect, imagePaint);
+    canvas.restore();
 
-  final ui.Image markerImage = await pictureRecorder.endRecording().toImage(size.toInt(), size.toInt());
-  final ByteData? byteData = await markerImage.toByteData(format: ui.ImageByteFormat.png);
+    // Convert the canvas to a bitmap
+    final ui.Image markerImage = await pictureRecorder
+        .endRecording()
+        .toImage(size.toInt(), size.toInt());
+    final ByteData? byteData =
+        await markerImage.toByteData(format: ui.ImageByteFormat.png);
 
-  return BitmapDescriptor.fromBytes(byteData!.buffer.asUint8List());
-}
-
+    return BitmapDescriptor.fromBytes(byteData!.buffer.asUint8List());
+  }
 
   Future<ui.Image> _loadImage(String imageUrl) async {
     final Completer<ui.Image> completer = Completer();
 
     // Load image as an asset
-    final ImageStream imageStream = AssetImage(imageUrl).resolve(const ImageConfiguration());
+    final ImageStream imageStream =
+        AssetImage(imageUrl).resolve(const ImageConfiguration());
     imageStream.addListener(ImageStreamListener((ImageInfo imageInfo, bool _) {
       completer.complete(imageInfo.image);
     }));
@@ -149,10 +168,18 @@ class _MapScreenState extends State<MapScreen> {
     double maxLng = -180.0;
 
     for (var member in members) {
-      if (member.currentLocation.latitude < minLat) minLat = member.currentLocation.latitude;
-      if (member.currentLocation.latitude > maxLat) maxLat = member.currentLocation.latitude;
-      if (member.currentLocation.longitude < minLng) minLng = member.currentLocation.longitude;
-      if (member.currentLocation.longitude > maxLng) maxLng = member.currentLocation.longitude;
+      if (member.currentLocation.latitude < minLat) {
+        minLat = member.currentLocation.latitude;
+      }
+      if (member.currentLocation.latitude > maxLat) {
+        maxLat = member.currentLocation.latitude;
+      }
+      if (member.currentLocation.longitude < minLng) {
+        minLng = member.currentLocation.longitude;
+      }
+      if (member.currentLocation.longitude > maxLng) {
+        maxLng = member.currentLocation.longitude;
+      }
     }
 
     return LatLngBounds(

@@ -3,6 +3,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:location123/member.dart';
+import 'package:location123/route_screen.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart'; // Assuming member class is in this file
 
 class LocationScreen extends StatefulWidget {
@@ -39,9 +40,11 @@ class _LocationScreenState extends State<LocationScreen> {
   }
 
   // Reverse geocoding function
-  Future<String> _getAddressFromLatLng(double latitude, double longitude) async {
+  Future<String> _getAddressFromLatLng(
+      double latitude, double longitude) async {
     try {
-      List<Placemark> placemarks = await placemarkFromCoordinates(latitude, longitude);
+      List<Placemark> placemarks =
+          await placemarkFromCoordinates(latitude, longitude);
       if (placemarks.isNotEmpty) {
         final placemark = placemarks.first;
         return '${placemark.street}, ${placemark.locality}, ${placemark.country}';
@@ -59,18 +62,21 @@ class _LocationScreenState extends State<LocationScreen> {
         markerId: const MarkerId('current_location'),
         position: widget.member.currentLocation,
         infoWindow: InfoWindow(
-  title: widget.member.status == 'WORKING' ? 'Current Location' : 'Last Location',
-),
+          title: widget.member.status == 'WORKING'
+              ? 'Current Location'
+              : 'Last Location',
+        ),
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
       ),
     };
 
-    String formattedDate = DateFormat('EEE, MMM d, yyyy').format(DateTime.now());
+    String formattedDate =
+        DateFormat('EEE, MMM d, yyyy').format(DateTime.now());
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('TRACK LIVE LOCATION'),
-        backgroundColor: const Color.fromARGB(255, 64, 39, 176),
+        backgroundColor: Colors.purple,
       ),
       body: SlidingUpPanel(
         panel: _buildVisitedLocationsPanel(formattedDate),
@@ -103,6 +109,7 @@ class _LocationScreenState extends State<LocationScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Drag handle
           Center(
             child: Container(
               width: 40,
@@ -131,7 +138,8 @@ class _LocationScreenState extends State<LocationScreen> {
                 children: [
                   Text(
                     widget.member.name,
-                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 4),
                   Text(
@@ -161,7 +169,8 @@ class _LocationScreenState extends State<LocationScreen> {
                       const SizedBox(height: 8),
                       const Row(
                         children: [
-                          Icon(Icons.arrow_downward, color: Colors.red, size: 16),
+                          Icon(Icons.arrow_downward,
+                              color: Colors.red, size: 16),
                           SizedBox(width: 4),
                           Text('06:40 PM'),
                         ],
@@ -212,6 +221,32 @@ class _LocationScreenState extends State<LocationScreen> {
                     style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                   trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+                  onTap: () {
+                    if (index >= 0) {
+                      // Navigate to RouteScreen with start and end locations
+                      final previousLocation =
+                          widget.member.visitedLocations[index+1].location;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RouteScreen(
+                            startLocation: LatLng(previousLocation.latitude,
+                                previousLocation.longitude),
+                            endLocation: LatLng(
+                                visitedLocation.location.latitude,
+                                visitedLocation.location.longitude), memberName: widget.member.name, memberImageUrl: widget.member.imageUrl,
+                          ),
+                        ),
+                      );
+                    } else {
+                      // Show a message if there's no previous location
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                            content: Text(
+                                'No previous location to show the route.')),
+                      );
+                    }
+                  },
                 );
               },
             ),
