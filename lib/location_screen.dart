@@ -76,7 +76,7 @@ class _LocationScreenState extends State<LocationScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('TRACK LIVE LOCATION'),
-        backgroundColor: Colors.purple,
+        backgroundColor: const Color.fromARGB(255,68,52,169),
       ),
       body: SlidingUpPanel(
         panel: _buildVisitedLocationsPanel(formattedDate),
@@ -184,7 +184,7 @@ class _LocationScreenState extends State<LocationScreen> {
           const SizedBox(height: 16),
           Row(
             children: [
-              const Icon(Icons.calendar_today, color: Colors.purple),
+              const Icon(Icons.calendar_today, color: Color.fromARGB(255,68,52,169)),
               const SizedBox(width: 8),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -210,7 +210,7 @@ class _LocationScreenState extends State<LocationScreen> {
                     ? visitedLocationNames[index]
                     : 'Fetching...';
                 return ListTile(
-                  leading: const Icon(Icons.location_on, color: Colors.purple),
+                  leading: const Icon(Icons.location_on, color: Color.fromARGB(255, 64, 39, 176)),
                   title: Text(
                     locationName,
                     style: const TextStyle(fontSize: 16),

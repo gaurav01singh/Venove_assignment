@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 backgroundImage: AssetImage('lib/assets/image/user.jpg'),
               ),
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 64, 39, 176),
+                color: Color.fromARGB(255,68,52,169),
               ),
             ),
             ListTile(
@@ -179,7 +179,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Row(
                   children: [
-                    const Icon(Icons.group, color: Colors.purple),
+                    const Icon(Icons.group, color: Color.fromARGB(255,68,52,169)),
                     const SizedBox(width: 8),
                     const Text(
                       'All Members',
@@ -239,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           const Text(
                             'NOT LOGGED-IN',
                             style: TextStyle(
-                                color: Color.fromARGB(255,68,52,169),
+                                color: Color.fromARGB(255, 253, 46, 46),
                                 fontWeight: FontWeight.bold),
                           ),
                         ] else ...[
@@ -273,7 +273,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         // Location button to view member's live location
                         IconButton(
                           icon: const Icon(Icons.location_on,
-                              color: Colors.purple),
+                              color: Color.fromARGB(255, 64, 39, 176)),
                           onPressed: () {
                             // Navigate to LocationScreen to show live location
                             Navigator.push(

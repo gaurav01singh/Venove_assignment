@@ -37,32 +37,38 @@ class _RouteScreenState extends State<RouteScreen> {
   }
 
   Future<void> _fetchPlaceNames() async {
-    // Reverse geocoding to get place names for the start and end locations
     try {
+      // Reverse geocoding for start location
       List<Placemark> startPlacemarks = await placemarkFromCoordinates(
         widget.startLocation.latitude,
         widget.startLocation.longitude,
       );
+      // Reverse geocoding for end location
       List<Placemark> endPlacemarks = await placemarkFromCoordinates(
         widget.endLocation.latitude,
         widget.endLocation.longitude,
       );
 
       if (startPlacemarks.isNotEmpty && endPlacemarks.isNotEmpty) {
+        final startPlacemark = startPlacemarks.first;
+        final endPlacemark = endPlacemarks.first;
+
         setState(() {
-          _startPlaceName =
-              '${startPlacemarks.first.locality}, ${startPlacemarks.first.country}';
-          _endPlaceName =
-              '${endPlacemarks.first.locality}, ${endPlacemarks.first.country}';
+          // Constructing full addresses
+          _startPlaceName = '${startPlacemark.name}, ${startPlacemark.street}, '
+              '${startPlacemark.locality}, ${startPlacemark.postalCode}, ${startPlacemark.country}';
+
+          _endPlaceName = '${endPlacemark.name}, ${endPlacemark.street}, '
+              '${endPlacemark.locality}, ${endPlacemark.postalCode}, ${endPlacemark.country}';
         });
       }
     } catch (e) {
-      _showError('Error getting place names: $e');
+      print('Error getting place names: $e');
     }
   }
 
   Future<void> _fetchRoute() async {
-    const apiKey = 'Your_api_key';
+    const apiKey = 'your_api_key';
     final url = Uri.parse(
       'https://maps.googleapis.com/maps/api/directions/json?'
       'origin=${widget.startLocation.latitude},${widget.startLocation.longitude}&'
@@ -146,7 +152,7 @@ class _RouteScreenState extends State<RouteScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Route Details'),
-        backgroundColor: Colors.purple,
+        backgroundColor: const Color.fromARGB(255, 64, 39, 176),
       ),
       body: Column(
         children: [
@@ -169,64 +175,95 @@ class _RouteScreenState extends State<RouteScreen> {
                     Text(
                       widget.memberName,
                       style: const TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.bold),
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                const Divider(
+                      color: Colors.grey, 
+                      thickness: 1.0,
+                      height: 16.0, 
+                    ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Starting point details
-                    Flexible(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Starting Point:',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          Text(
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Icon(
+                          Icons.location_on,
+                          color: Colors.green,
+                        ),
+                        const Text(
+                          'Starting Point: ',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Expanded(
+                          child: Text(
                             _startPlaceName.isNotEmpty
                                 ? _startPlaceName
                                 : 'Loading...',
                             style: const TextStyle(color: Colors.grey),
+                            softWrap: true,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
+                    ),
+                    const Divider(
+                      color: Colors.grey, 
+                      thickness: 1.0,
+                      height: 16.0, 
                     ),
                     // Ending point details
-                    Flexible(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Ending Point:',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          Text(
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Icon(
+                          Icons.location_on,
+                          color: Colors.red,
+                        ),
+                        const Text(
+                          'Ending Point: ',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Expanded(
+                          child: Text(
                             _endPlaceName.isNotEmpty
                                 ? _endPlaceName
                                 : 'Loading...',
                             style: const TextStyle(color: Colors.grey),
+                            softWrap: true,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
-                Text(
-                  'Total Distance: ${_totalDistance.toStringAsFixed(2)} km',
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
+                const Divider(
+                      color: Colors.grey, 
+                      thickness: 1.0,
+                      height: 16.0, 
+                    ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Total Distance: ${_totalDistance.toStringAsFixed(2)} km',
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
                 Text(
                   'Time Taken: $_duration',
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
+                  ],
+                ),
               ],
             ),
           ),
+
           const Divider(height: 1),
           // Map Widget
           Expanded(
