@@ -4,13 +4,11 @@ This Flutter project is an Attendance and Location Tracking system.
 The app allows you to:
 1. View a list of members.
 2. Track members' current location and route traveled on a map.
-3. Display attendance and check-in and check-out reports.
-4. View location history with route details including start/stop locations, total distance traveled, and duration.
+3. View location history with route details including start/stop locations, total distance traveled, and duration.
 
 ## Features
-- *Member List*: View members with the option to track their location or check attendance.
+- *Member List*: View members with the option to track their location .
 - *Location Tracking*: Displays current location and route on Google Maps.
-- *Attendance Management*: Allows checking and managing attendance records for each member.
 - *Route History*: Shows a timeline of locations visited, along with details like total distance and stops.
   
 ## File Structure
@@ -37,15 +35,19 @@ The app allows you to:
 
 2. lib/member.dart: Contains the Member class, which defines the properties of each member, including their name, current location (as LatLng coordinates), and attendance 
    records.
-
-3. lib/member_screen.dart: Displays a list of members, each with two actions:
+   
+3.lib/homescreen.dart:Displays a list of members with there current status, each with two actions:
     a. View location and route traveled.
     b. View and manage attendance.
    
-4. lib/location_screen.dart: Displays the current location and route traveled on Google Maps, with a timeline view of all visited locations. The map shows the start/stop 
-   points and indicates stop times on the route.
+4. lib/member_screen.dart: Displays a list of members.
+   
+5. lib/location_screen.dart: Displays the current location or last location on Google Maps, with a timeline view of all visited locations.
+   
+6. lib/route_screen.dart: The map shows the start/stop points and indicates stop times on the route with the timetaken and total distence.
+   
+7. lib/mapscreen.dart: Show all members current location or last location of all members.
 
-5. lib/attendance_screen.dart: Handles attendance data for each member, allowing the user to view and manage attendance records.
 
  ## Steps to Run the Project:
 	1.	Create a new Flutter project in Android Studio.
