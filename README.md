@@ -20,9 +20,11 @@ The app allows you to:
 ├── ios/                         # iOS-specific files
 ├── lib/                         # Main Dart code directory
 │   ├── member.dart              # Model class for Member
+│   ├── homescreen.dart          # Display the staus and some details of members
+│   ├── route_screen.dart        # Display the route of visited locations
+│   ├── mapscreen.dart           # Display all members current or last location
 │   ├── member_screen.dart       # UI for the member list and actions
-│   ├── location_screen.dart     # Displays location and route on a map
-│   ├── attendance_screen.dart   # Displays attendance information
+│   ├── location_screen.dart     # Displays location of individual member
 │   ├── main.dart                # Entry point for the Flutter app
 ├── test/                        # Unit and widget tests
 ├── pubspec.yaml                 # Project dependencies and asset declarations
