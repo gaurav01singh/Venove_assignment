@@ -92,7 +92,7 @@ This provides a visual summary of the member's travel history.
 
 
 ```bash
-git clone https://github.com/VENOVE_ASSIGNEMENT.git
+git clone https://https://github.com/gaurav01singh/Venove_assignment
 
 ```
 2. Navigate to the Project Directory:
