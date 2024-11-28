@@ -19,6 +19,8 @@ The app allows you to:
 ├── android/                     # Android-specific files
 ├── ios/                         # iOS-specific files
 ├── lib/                         # Main Dart code directory
+│   ├── assets/                  # contain all assets
+|	├──image/                # contain all images
 │   ├── member.dart              # Model class for Member
 │   ├── homescreen.dart          # Display the staus and some details of members
 │   ├── route_screen.dart        # Display the route of visited locations
