@@ -99,7 +99,7 @@ git clone https://https://github.com/gaurav01singh/Venove_assignment
 
 
 ```bash
-  cd VENOVE_ASSIGNEMENT
+  cd Venove_assignment
 ```
 
 3. Install Dependencies:
