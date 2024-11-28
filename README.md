@@ -73,7 +73,7 @@ This provides a visual summary of the member's travel history.
 <img src="./Screenshots/Homescreen.png" alt="Home Screen" style="width:40%;border:1px solid #ddd;border-radius:8px;padding:5px;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);"/>
 
 ### 2. Location Screen
-<img src="./Screenshots/Locationsceen.jpg" alt="Location Screen" style="width:40%;border:1px solid #ddd;border-radius:15px;padding:5px;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);"/>
+<img src="./Screenshots/Locationscreen.jpg" alt="Location Screen" style="width:40%;border:1px solid #ddd;border-radius:15px;padding:5px;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);"/>
 
 ### 3. Map Screen
 <img src="./Screenshots/mapscreen.jpg" alt="Map Screen" style="width:40%;border:1px solid #ddd;border-radius:15px;padding:5px;box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);"/>
