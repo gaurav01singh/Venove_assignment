@@ -6,7 +6,7 @@ import 'package:geocoding/geocoding.dart';
 
 class RouteScreen extends StatefulWidget {
   final String memberName;
-  final String memberImageUrl; // Added member image URL
+  final String memberImageUrl; 
   final LatLng startLocation;
   final LatLng endLocation;
 

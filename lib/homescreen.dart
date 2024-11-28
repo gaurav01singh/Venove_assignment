@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:location123/location_screen.dart';
 import 'package:location123/mapscreen.dart';
 import 'package:location123/member.dart';
-import 'package:location123/member_screen.dart'; // Import the MemberScreen
+import 'package:location123/member_screen.dart'; 
 
 class HomeScreen extends StatefulWidget {
   final List<Member> members;
@@ -15,7 +15,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // Method to get the current date in the desired format
   String _getCurrentDate() {
     final DateTime now = DateTime.now();
     final DateFormat formatter = DateFormat('EEE, MMM dd yyyy');
@@ -178,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           MaterialPageRoute(
                             builder: (context) => MemberScreen(
                                 members:
-                                    widget.members), // Passing the first member
+                                    widget.members), 
                           ),
                         );
                       },
@@ -189,9 +188,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Row(
                   children: [
-                    const Icon(Icons.calendar_today, color: Colors.grey),
+                    const Icon(Icons.chevron_left, color: Colors.grey),
                     const SizedBox(width: 8),
-                    Text(_getCurrentDate()), // Display current date here
+                    Text(_getCurrentDate()), 
+                    const Icon(Icons.chevron_right, color: Colors.grey),
                   ],
                 ),
               ],
@@ -209,7 +209,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ListTile(
                     leading: CircleAvatar(
                       backgroundImage: AssetImage(member
-                          .imageUrl), // Ensure member.imageUrl is non-null
+                          .imageUrl), 
                       radius: 20,
                     ),
                     title: Text(
@@ -218,7 +218,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     subtitle: Row(
                       children: [
-                        // Display check-in time icon and time (if working)
                         if (member.status == 'NOT LOGGED-IN') ...[
                           const Text(
                             'NOT LOGGED-IN',
@@ -229,16 +228,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         ] else ...[
                           const Icon(Icons.arrow_upward,
                               color: Colors.green, size: 16),
-                          const Text(' 09:30 am'), // Assuming check-in time
+                          const Text(' 09:30 am'), 
                           const SizedBox(width: 16),
                         ],
 
-                        // Display check-out time only if member is not working
+                        //if member is checked out then show checked out time
                         if (member.status != 'WORKING' &&
                             member.status != 'NOT LOGGED-IN') ...[
                           const Icon(Icons.arrow_downward,
                               color: Colors.red, size: 16),
-                          const Text(' 06:40 pm'), // Assuming check-out time
+                          const Text(' 06:40 pm'), 
                         ],
                       ],
                     ),
@@ -253,32 +252,29 @@ class _HomeScreenState extends State<HomeScreen> {
                                 color: Colors.green,
                                 fontWeight: FontWeight.bold),
                           ),
+                        IconButton(
+                          icon: const Icon(Icons.calendar_month,
+                              color: Colors.blue),
+                          onPressed: () {
+                           //for attendenc page
+                          },
+                        ),
 
-                        // Location button to view member's live location
                         IconButton(
                           icon: const Icon(Icons.location_on,
                               color: Color.fromARGB(255, 64, 39, 176)),
                           onPressed: () {
-                            // Navigate to LocationScreen to show live location
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => LocationScreen(
                                     member:
-                                        member), // Pass the member to LocationScreen
+                                        member),
                               ),
                             );
                           },
                         ),
 
-                        // Attendance button to navigate to AttendanceScreen
-                        IconButton(
-                          icon: const Icon(Icons.calendar_month,
-                              color: Colors.blue),
-                          onPressed: () {
-                           
-                          },
-                        ),
                       ],
                     ),
                   ),

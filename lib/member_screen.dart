@@ -1,6 +1,8 @@
+// Displays a list of members with there status
+
 import 'package:flutter/material.dart';
 import 'package:location123/location_screen.dart';
-import 'member.dart'; // Your Member model file
+import 'member.dart'; 
 
 class MemberScreen extends StatelessWidget {
   final List<Member> members;
@@ -15,25 +17,24 @@ class MemberScreen extends StatelessWidget {
         backgroundColor: Colors.blueAccent,
       ),
       body: ListView.builder(
-        itemCount: members.length, // Use the passed list's length
+        itemCount: members.length, 
         itemBuilder: (context, index) {
-          final member = members[index]; // Get each member from the list
+          final member = members[index]; 
 
           return Card(
             elevation: 4,
             margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
             child: ListTile(
               leading: CircleAvatar(
-                backgroundImage: AssetImage(member.imageUrl), // Profile image
+                backgroundImage: AssetImage(member.imageUrl), 
               ),
               title: Text(member.name),
               subtitle: Text(member.status),
               onTap: () {
-                // When a member is tapped, navigate to the LocationScreen
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => LocationScreen(member: member), // Pass member data to LocationScreen
+                    builder: (context) => LocationScreen(member: member), 
                   ),
                 );
               },

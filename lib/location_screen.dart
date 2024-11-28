@@ -1,10 +1,12 @@
+// This file displays the current location or last location on Google Maps, with a timeline view of all visited locations.
+
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:location123/member.dart';
 import 'package:location123/route_screen.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart'; // Assuming member class is in this file
+import 'package:sliding_up_panel/sliding_up_panel.dart'; 
 
 class LocationScreen extends StatefulWidget {
   final Member member;
