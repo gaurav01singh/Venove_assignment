@@ -1,16 +1,35 @@
-# Flutter Attendance & Location Tracking App
 
-This Flutter project is an Attendance and Location Tracking system. 
-The app allows you to:
-1. View a list of members.
-2. Track members' current location and route traveled on a map.
-3. View location history with route details including start/stop locations, total distance traveled, and duration.
+# Location Tracker - Flutter App
 
-## Features
-- *Member List*: View members with the option to track their location .
-- *Location Tracking*: Displays current location and route on Google Maps.
-- *Route History*: Shows a timeline of locations visited, along with details like total distance and stops.
-  
+Location Tracker - Flutter App
+This project is a Location Tracking System developed using the Flutter Framework. The app allows users to monitor and visualize the attendance and travel routes of members. The main features include viewing current locations, timelines of visited locations, and detailed route information.
+
+## Features Implemented
+1. Attendance with Location Tracking
+Accessed from the Menu by clicking on the Attendance section.
+Displays a list of members with two action icons:
+Current Location: View a member's current location on a map.
+Route Traveled: Visualize the route traveled by a member.
+
+2. Member Location Overview
+Clicking the location icon for a member:
+Opens a Map Screen displaying the current location of the selected member.
+Includes a Timeline View at the bottom:
+Displays all visited locations for the current day (default view).
+Includes a Date Filter to view data for specific past dates.
+The timeline can be expanded to see a full list of traveled locations.
+
+3. Route Details
+Selecting any two visited locations generates detailed route information:
+Start Location and Stop Location.
+Total Distance Traveled (in kilometers).
+Total Travel Duration.
+A Map View:
+Displays the complete route drawn on Google Maps.
+Red Dots on the route line indicate stops:
+Any stop exceeding 10 minutes is recorded as Stop Time.
+This provides a visual summary of the member's travel history.
+
 ## File Structure
 ```
 .
@@ -18,7 +37,7 @@ The app allows you to:
 ├── ios/                         # iOS-specific files
 ├── lib/                         # Main Dart code directory
 │   ├── assets/                  # contain all assets
-|	     ├──image/                # contain all images
+|	├──image/                # contain all images
 │   ├── member.dart              # Model class for Member
 │   ├── homescreen.dart          # Display the staus and some details of members
 │   ├── route_screen.dart        # Display the route of visited locations
@@ -40,7 +59,7 @@ The app allows you to:
     a. View location and route traveled.
     b. View and manage attendance.
    
-4. lib/member_screen.dart: Displays a list of members with there status.
+4. lib/member_screen.dart: Displays a list of members.
    
 5. lib/location_screen.dart: Displays the current location or last location on Google Maps, with a timeline view of all visited locations.
    
@@ -48,24 +67,50 @@ The app allows you to:
    
 7. lib/mapscreen.dart: Show all members current location or last location of all members.
 
+## Screenshots
 
- ## Steps to Run the Project:
-	1.	Create a new Flutter project in Android Studio.
-	2.	Place the above code files into the lib/ folder of your project.
-	3.	Install the required dependencies (google_maps_flutter, flutter_polyline_points, etc.) in your pubspec.yaml.
-	4.	Run the project on an Android device or emulator.
-    NOTE : Make sure that you have installed the flutter and dart in your system.
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
- ## SCREENSHOTS
-   1. ![image](https://github.com/user-attachments/assets/0a35d087-c9e1-4fc5-a71f-e8de5fbe792f)
-   2. ![image](https://github.com/user-attachments/assets/00ae6069-bed0-431c-a4e1-47da3dbdf647)
-   3. ![image](https://github.com/user-attachments/assets/68698709-004c-469b-adbc-b3a3732f7292)
-   4. ![image](https://github.com/user-attachments/assets/48ea81f1-8a0f-4699-a620-c2b450bcacec)
-   5. ![image](https://github.com/user-attachments/assets/6d1cdcb3-4da9-43d8-8808-670414636054)
-   6. ![image](https://github.com/user-attachments/assets/0f191295-c0b7-421f-bbbd-bbbec3da5ba3)
+
+## Installation
+
+1. Clone the Repository:
+
+
+```bash
+git clone https://github.com/VENOVE_ASSIGNEMENT.git
 
 ```
-FOR INSTALLATION OF FLUTTER AND DART IN ANDROID STUDIO REFER - https://youtu.be/BqHOtlh3Dd4?si=TsazyUifsAXCVEAJ
-For help getting started with Flutter development, view thE online documentation-https://docs.flutter.dev/,
-which offers tutorials,samples, guidance on mobile development, and a full API reference.
+2. Navigate to the Project Directory:
+
+
+```bash
+  cd VENOVE_ASSIGNEMENT
 ```
+
+3. Install Dependencies:
+```bash
+ flutter pub get
+```
+
+4. Add your Your_API_KEY 
+```bash
+-> android/app/src/main/AndroidManifest
+ 
+   <meta-data
+    android:name="com.google.android.geo.API_KEY"
+    android:value="Your_API_KEY" />
+
+-> lib/route_screen.dart/_RouteScreenState/_fetchRoute
+
+   Future<void> _fetchRoute() async {
+    const apiKey = 'Your_API_KEY';   
+
+``` 
+
+5. Run the App
+```bash
+  flutter run
+
+```
+    
