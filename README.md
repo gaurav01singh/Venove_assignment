@@ -69,15 +69,15 @@ This provides a visual summary of the member's travel history.
 
 ## Screenshots
 1.Home Screen
-![App Screenshot](./Screenshots/Homesceen.jpg)
+![Image](./Screenshots/Homesceen.jpg)
 2.Location Screen
-![App Screenshot](./Screenshots/Locationsceen.jpg)
+![Image](./Screenshots/Locationsceen.jpg)
 3.Map Screen
-![App Screenshot](./Screenshots/mapscreen.jpg)
+![Image](./Screenshots/mapscreen.jpg)
 4.Route Screen
-![App Screenshot](./Screenshots/Routescreen.jpg)
+![Image](./Screenshots/Routescreen.jpg)
 5.Members Screen
-![App Screenshot](./Screenshots/Membersceen.jpg)
+![Image](./Screenshots/Membersceen.jpg)
 
 
 ## Installation
