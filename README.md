@@ -57,7 +57,7 @@ The app allows you to:
     NOTE : Make sure that you have installed the flutter and dart in your system.
 
  ## SCREENSHOTS
-   1. ![image](https://github.com/user-attachments/assets/0a35d087-c9e1-4fc5-a71f-e8de5fbe792f)
+   1. ![image](https://github.com/user-attachments/assets/0a35d087-c9e1-4fc5-a71f-e8de5fbe792)
    2. ![image](https://github.com/user-attachments/assets/00ae6069-bed0-431c-a4e1-47da3dbdf647)
    3. ![image](https://github.com/user-attachments/assets/68698709-004c-469b-adbc-b3a3732f7292)
    4. ![image](https://github.com/user-attachments/assets/48ea81f1-8a0f-4699-a620-c2b450bcacec)
